@@ -10,9 +10,11 @@
         "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'"
     },
     "dependencies": {
+        "@types/papaparse": "^5.2.5",
         "chartjs": "^0.3.24",
         "next": "11.0.1",
         "next-compose-plugins": "^2.2.1",
+        "papaparse": "^5.3.1",
         "prettier": "^2.2.1",
         "ramda": "^0.27.1",
         "react": "17.0.2",
@@ -23,6 +25,7 @@
     },
     "devDependencies": {
         "@types/node": "^16.0.0",
+        "@types/ramda": "^0.27.44",
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
         "@typescript-eslint/eslint-plugin": "^4.9.1",
