@@ -1,7 +1,17 @@
 import * as React from "react";
 import { VoteTotal } from "src/types/vote";
 import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import clsx from "clsx";
+
+const colors = [
+    "rgba(255, 99, 132, 1)",
+    "rgba(54, 162, 235, 1)",
+    "rgba(153, 102, 255, 1)",
+    "rgba(255, 206, 86, 1)",
+    "rgba(75, 192, 192, 1)",
+    "rgba(255, 159, 64, 1)",
+];
 
 interface IPositionChartProps {
     data: VoteTotal;
@@ -16,24 +26,29 @@ const makeChartData = (data: VoteTotal) => ({
             backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
                 "rgba(255, 206, 86, 0.2)",
                 "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
                 "rgba(255, 159, 64, 0.2)",
             ],
-            borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-            ],
+            borderColor: colors,
             borderWidth: 1,
         },
     ],
 });
 const options = {
+    plugins: {
+        datalabels: {
+            clamp: true,
+            color: colors,
+            anchor: "end",
+            font: {
+                size: 21,
+            },
+            align: "top",
+            offset: 4,
+        },
+    },
     scales: {
         y: {
             beginAtZero: true,
@@ -97,7 +112,12 @@ const PositionChart: React.FunctionComponent<IPositionChartProps> = ({
             >
                 Reveal Next !
             </button>
-            <Bar type="Bar" data={chartData} options={options} />
+            <Bar
+                type="Bar"
+                plugins={[ChartDataLabels]}
+                data={chartData}
+                options={options}
+            />
         </div>
     );
 };

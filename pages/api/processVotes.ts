@@ -41,7 +41,11 @@ export default async (
     const output = positions.map((e) => {
         const votes = validVotes.map((r) => r[e]).filter(R.identity);
 
-        const count = R.countBy<string>(R.identity)(votes);
+        const count = Object.fromEntries(
+            Object.entries(R.countBy<string>(R.identity)(votes)).sort(([a]) =>
+                a === "No one" ? -1 : 0,
+            ),
+        );
         return { position: e, count };
     });
 
