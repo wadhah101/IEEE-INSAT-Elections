@@ -15,3 +15,8 @@ export interface Vote {
     "EMBS Chairwoman"?: string;
     "WIE Chairwoman"?: string;
 }
+
+export interface VoteTotal {
+    position: string;
+    count: Record<string, number>;
+}
