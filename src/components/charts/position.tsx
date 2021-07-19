@@ -58,9 +58,7 @@ const options = {
     },
 };
 
-const PositionChart: React.FunctionComponent<IPositionChartProps> = ({
-    data,
-}) => {
+const Position: React.FunctionComponent<IPositionChartProps> = ({ data }) => {
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const resetedData = {
         ...data,
@@ -70,10 +68,6 @@ const PositionChart: React.FunctionComponent<IPositionChartProps> = ({
     };
     const [animatedData, setAnimatedData] =
         React.useState<VoteTotal>(resetedData);
-
-    React.useEffect(() => {
-        return;
-    }, [animatedData]);
 
     const chartData = makeChartData(animatedData);
 
@@ -97,17 +91,15 @@ const PositionChart: React.FunctionComponent<IPositionChartProps> = ({
     };
 
     return (
-        <div>
-            <h2 className="mb-8 text-5xl font-bold text-center text-black text-opacity-80 ">
-                {data.position}
-            </h2>
-
+        <div className="flex flex-col">
             <button
                 disabled={weEnded}
                 onClick={revealNext}
                 className={clsx(
-                    weEnded ? "bg-blue-200 cursor-not-allowed " : "bg-blue-500",
-                    "flex p-3 font-bold text-white rounded shadow ",
+                    weEnded
+                        ? "bg-blue-200  cursor-not-allowed "
+                        : "bg-blue-500",
+                    "flex p-3 font-bold text-white  self-center mb-8 rounded shadow ",
                 )}
             >
                 Reveal Next !
@@ -122,4 +114,4 @@ const PositionChart: React.FunctionComponent<IPositionChartProps> = ({
     );
 };
 
-export default PositionChart;
+export default Position;

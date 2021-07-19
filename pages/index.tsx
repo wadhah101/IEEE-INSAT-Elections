@@ -4,7 +4,7 @@ import { Container, Header, Footer } from "@components";
 import { GetStaticProps } from "next";
 import { promises as fsp } from "fs";
 import { VoteTotal } from "src/types/vote";
-import PositionChart from "@components/charts/position";
+import * as MyCharts from "@components/charts/exports";
 
 interface HomeProps {
     data: VoteTotal[];
@@ -14,11 +14,7 @@ const Home: React.FC<HomeProps> = ({ data }) => {
     return (
         <Container>
             <Header />
-            <div className="flex flex-col min-h-screen py-20">
-                <div className="self-center md:w-7/12">
-                    <PositionChart data={data[0]} />
-                </div>
-            </div>
+            <MyCharts.Selector data={data} />
             <Footer />
         </Container>
     );
