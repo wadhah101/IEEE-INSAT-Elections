@@ -33,18 +33,13 @@ const makeChartData = (data: VoteTotal) => ({
         },
     ],
 });
-
 const options = {
     scales: {
-        y: [
-            {
-                min: 0,
-                max: 100,
-                // ticks: {
-                //     beginAtZero: true,
-                // },
-            },
-        ],
+        y: {
+            beginAtZero: true,
+            min: 0,
+            max: 100,
+        },
     },
 };
 
@@ -58,7 +53,6 @@ const PositionChart: React.FunctionComponent<IPositionChartProps> = ({
             Object.entries(data.count).map(([a]) => [a, 0]),
         ),
     };
-    console.log(resetedData);
     const [animatedData, setAnimatedData] =
         React.useState<VoteTotal>(resetedData);
 
