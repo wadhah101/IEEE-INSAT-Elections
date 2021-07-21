@@ -2,6 +2,7 @@ import * as React from "react";
 import { VoteTotal } from "src/types/vote";
 import dynamic from "next/dynamic";
 
+// the chartJS lib is huge better load it on the fly to keep the bundle size small
 const Position = dynamic(() => import("./position"), { ssr: false });
 
 interface ISelectorProps {
@@ -27,6 +28,9 @@ const Selector: React.FunctionComponent<ISelectorProps> = ({ data }) => {
                     ))}
                 </ul>
             </div>
+            {/* chartJS is retarded , even if the comp rerenders with new data it doesn't fucking chage ( even with ssr disabled ) so i have to create  every fucking chart with its own data and hide them until they r needed 
+            god please forgive me 
+            */}
             <div className="mt-6 md:w-9/12">
                 {data.map(
                     (e) =>
