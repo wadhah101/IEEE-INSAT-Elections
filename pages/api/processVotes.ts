@@ -6,7 +6,7 @@ import { Vote } from "src/types/vote";
 import { MemberAnalytics } from "src/types/MemberAnalytics";
 import * as R from "ramda";
 
-const positions = [
+const POSITIONS = [
     "Chairman",
     "Vice-Chairwoman",
     "Human Resources Manager",
@@ -22,8 +22,10 @@ const positions = [
     "WIE Chairwoman",
 ];
 
+const EXCEPTIONS = [11235813, 13853211, 1];
+
 export default async (
-    req: NextApiRequest,
+    _req: NextApiRequest,
     res: NextApiResponse,
 ): Promise<void> => {
     const memberArrayStr = await fsp.readFile("secrets/Member.json", "utf-8");
@@ -34,22 +36,25 @@ export default async (
         header: true,
     });
 
-    const validVotes = result.data.filter((e) => isValidVote(e, memberArray));
-
+    // create validation functions
+    const isValidVoteFunc = isValidVote(memberArray, EXCEPTIONS);
+    const validVotes = result.data.filter((e) => isValidVoteFunc(e));
     console.log(`Valid Votes ${validVotes.length} / ${result.data.length}`);
 
-    const output = positions.map((e) => {
+    const output = POSITIONS.map((e) => {
+        //  filter by identity may seem useless at first but it checks if the value is truthy
         const votes = validVotes.map((r) => r[e]).filter(R.identity);
 
         const count = Object.fromEntries(
             Object.entries(R.countBy<string>(R.identity)(votes)).sort(([a]) =>
+                // putting no one as the first
                 a === "No one" ? -1 : 0,
             ),
         );
         return { position: e, count };
     });
 
-    await fsp.writeFile("secrets/votes.json", JSON.stringify(output, null, 2));
+    await fsp.writeFile("data/votes.json", JSON.stringify(output, null, 2));
 
     res.status(200).json(output);
 };

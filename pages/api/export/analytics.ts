@@ -3,8 +3,9 @@ import fsp from "fs/promises";
 import Papa from "papaparse";
 import { MemberAnalytics } from "src/types/MemberAnalytics";
 
+// serializes IEEE ou analytivs CSV to json file
 export default async (
-    req: NextApiRequest,
+    _req: NextApiRequest,
     res: NextApiResponse,
 ): Promise<void> => {
     const csvFile = await fsp.readFile("secrets/Member.csv", "utf-8");

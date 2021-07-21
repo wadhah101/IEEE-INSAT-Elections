@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = ({ data }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-    const dataStr = await fsp.readFile("secrets/votes.json", "utf-8");
+    const dataStr = await fsp.readFile("data/votes.json", "utf-8");
 
     return {
         props: {

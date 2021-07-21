@@ -38,6 +38,13 @@ const makeChartData = (data: VoteTotal) => ({
 });
 const options = {
     plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 24,
+                },
+            },
+        },
         datalabels: {
             clamp: true,
             color: colors,
@@ -75,6 +82,7 @@ const Position: React.FunctionComponent<IPositionChartProps> = ({ data }) => {
     const revealNext = () => {
         if (weEnded) return;
 
+        // god forgive me
         const newData = {
             ...animatedData,
             count: Object.fromEntries(

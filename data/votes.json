@@ -1,0 +1,99 @@
+[
+  {
+    "position": "Chairman",
+    "count": {
+      "No one": 8,
+      "Aziz Allouche": 14,
+      "Mohamed Ali Zormati": 75
+    }
+  },
+  {
+    "position": "Vice-Chairwoman",
+    "count": {
+      "No one": 4,
+      "Mouna Khiari": 93
+    }
+  },
+  {
+    "position": "Human Resources Manager",
+    "count": {
+      "No one": 33,
+      "Maryem Manai": 59
+    }
+  },
+  {
+    "position": "Treasurer",
+    "count": {
+      "No one": 36,
+      "Maryem Manai": 55
+    }
+  },
+  {
+    "position": "Communication/Media Manager",
+    "count": {
+      "No one": 12,
+      "Amira Becheikh": 79
+    }
+  },
+  {
+    "position": "General Secretary",
+    "count": {
+      "No one": 9,
+      "Hend Kmiha": 82
+    }
+  },
+  {
+    "position": "WebMaster",
+    "count": {
+      "No one": 16,
+      "Omar Maaref": 25,
+      "Sirajeddine Aissa": 30,
+      "Mohamed Ali Sahnoun": 14
+    }
+  },
+  {
+    "position": "CS Chairwoman",
+    "count": {
+      "No one": 4,
+      "Asma Jebari": 51,
+      "Syrine Doukali": 42
+    }
+  },
+  {
+    "position": "RAS Chairman",
+    "count": {
+      "No one": 6,
+      "Mohamed Taher Bazzazi": 65,
+      "Sabri Ben Raies": 24
+    }
+  },
+  {
+    "position": "PES Chairwoman",
+    "count": {
+      "No one": 7,
+      "Sana Jebali": 84
+    }
+  },
+  {
+    "position": "IAS Chairman",
+    "count": {
+      "No one": 11,
+      "Omar Kouki": 81
+    }
+  },
+  {
+    "position": "EMBS Chairwoman",
+    "count": {
+      "No one": 12,
+      "Yasmine Zarrouk": 36,
+      "Amina Elair": 36
+    }
+  },
+  {
+    "position": "WIE Chairwoman",
+    "count": {
+      "No one": 20,
+      "Asma Hosni": 70
+    }
+  }
+]
